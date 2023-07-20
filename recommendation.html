@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Gait Recommendation</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+        /* Reset some default styles */
+        body, h1, h2, p {
+            margin: 0;
+            padding: 0;
+        }
+        img {
+            max-width: 400px; /* Adjust the width as per your preference */
+            max-height: 300px; /* Adjust the height as per your preference */
+        }
+        /* Set background color and font styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            background-image: url('static/css/images/istockphoto-1142314163-612x612.jpg');
+            width:100%
+            background-repeat: no-repeat;
+            background-size: cover;
+            font-family: Arial, sans-serif;
+            color: #EE0B23;
+        }
+        /* Header styles */
+        h1 {
+            text-align: center;
+            font-size: 36px;
+            padding: 20px;
+            color: #EE0B23;
+        }
+        /* Main content styles */
+        main {
+            padding: 20px;
+            text-align: center;
+        }
+
+        /* Gait recommendation styles */
+        h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: #EE0B23;
+        }
+
+        .black-box {
+            background-color:rgb(60, 60, 60); /* Transparent black background */
+            padding: 20px;
+            border-radius: 5px;
+            display: inline-block;
+            position: relative;
+            max-width: 600px; /* Adjust the width as per your preference */
+            margin: 0 auto;
+        }
+
+        .typewriting {
+            font-size: 18px;
+            line-height: 1.6;
+            border-right: 1px solid #00FFFF; /* Sky blue glowing effect */
+            white-space: pre-wrap;
+            color: #00FFFF; /* Text color (sky blue) */
+            text-shadow: 0 0 10px rgba(0, 255, 255, 0.7); /* Glowing effect */
+            animation: typewriting 2s steps(40) infinite;
+            white-space: pre-wrap;
+            word-break: break-all;
+        }
+
+        /* Typewriting animation keyframes */
+        @keyframes typewriting {
+            from {
+                width: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Gait Recommendation</h1>
+    <main>
+        <h2>Recommendation:</h2>
+        <div class="black-box">
+            <p><span class="typewriting" data-text="{{ recommendation }}"></span></p>
+            {% if image_url %}
+                <img src="{{ url_for('static', filename=recommendation.image_url) }}" alt="Gait Image">
+            {% endif %}
+        </div>
+    </main>
+
+    <script>
+        // Replace "{{ recommendation }}" with your actual recommendation text
+        const recommendationText = "{{ recommendation }}!";
+        const recommendationElement = document.querySelector(".typewriting");
+        const textToType = recommendationElement.getAttribute("data-text");
+        recommendationElement.textContent = ""; // Clear the initial content
+
+        // Function to add each character with typewriting delay
+        function typeWriter(text, index) {
+            if (index < text.length) {
+                recommendationElement.textContent = text.substring(0, index + 1);
+                setTimeout(() => typeWriter(text, index + 1), 100); // Adjust the typewriting speed here (milliseconds)
+            }
+        }
+
+        // Start the typewriting effect
+        typeWriter(textToType, 0);
+    </script>
+</body>
+</html>

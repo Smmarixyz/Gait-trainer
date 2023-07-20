@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Gait Recommendation</title>
+    <style>
+        body {
+            background-color: #f2f2f2;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+
+            background-image: url('static/css/images/Gait-Analysis.jpg');
+            width:100%
+            background-repeat: no-repeat;
+            background-size: cover;
+            font-family: Arial, sans-serif;
+            color: #EE0B23;
+        }
+
+
+        h1 {
+            text-align: center;
+            color: #EE0B23;
+        }
+
+        .input-container {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #79DCE8  ;
+        }
+
+        .input-container label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #F0E8E8;
+        }
+        .input-form{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .input-container input {
+            width: 200px;
+            padding: 8px;
+            border: 1px solid #cccccc;
+            border-radius: 4px;
+            margin-bottom: 10px;
+            width: calc(50% - 10px);
+            margin-bottom: 10px;
+            color: #EE0B23;
+            font-weight: bold
+        }
+
+        .button-row {
+            text-align: center;
+        }
+
+        .button-row button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: #ffffff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .button-row button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>Gait Recommendation</h1>
+    <form action="/recommendation" method="POST">
+        <div class="input-form">
+            <div class="input-container">
+                <h2>IMU Sensor</h2>
+                <label for="sensor1">Sensor 1:</label>
+                <input type="number" id="sensor1" name="sensor1" step="0.01" required>
+                <label for="sensor2">Sensor 2:</label>
+                <input type="number" id="sensor2" name="sensor2" step="0.01" required>
+                <label for="sensor3">Sensor 3:</label>
+                <input type="number" id="sensor3" name="sensor3" step="0.01" required>
+            </div>
+            <div class="input-container">
+                <h2>MMG Sensor</h2>
+                <label for="sensor4">Sensor 4:</label>
+                <input type="number" id="sensor4" name="sensor4" step="0.01" required>
+                <label for="sensor5">Sensor 5:</label>
+                <input type="number" id="sensor5" name="sensor5" step="0.01" required>
+                <label for="sensor6">Sensor 6:</label>
+                <input type="number" id="sensor6" name="sensor6" step="0.01" required>
+                <label for="sensor7">Sensor 7:</label>
+                <input type="number" id="sensor7" name="sensor7" step="0.01" required>
+            </div>
+            <div class="input-container">
+                <h2>EMG Sensor</h2>
+                <label for="sensor8">Sensor 8:</label>
+                <input type="number" id="sensor8" name="sensor8" step="0.01" required>
+                <label for="sensor9">Sensor 9:</label>
+                <input type="number" id="sensor9" name="sensor9" step="0.01" required>
+                <label for="sensor10">Sensor 10:</label>
+                <input type="number" id="sensor10" name="sensor10" step="0.01" required>
+                <label for="sensor11">Sensor 11:</label>
+                <input type="number" id="sensor11" name="sensor11" step="0.01" required>
+                <label for="sensor12">Sensor 12:</label>
+                <input type="number" id="sensor12" name="sensor12" step="0.01" required>
+                <label for="sensor13">Sensor 13:</label>
+                <input type="number" id="sensor13" name="sensor13" step="0.01" required>
+                <label for="sensor14">Sensor 14:</label>
+                <input type="number" id="sensor14" name="sensor14" step="0.01" required>
+                <label for="sensor15">Sensor 15:</label>
+                <input type="number" id="sensor15" name="sensor15" step="0.01" required>
+            </div>
+            <div class="input-container">
+                <h2>FOOT SWITCH Sensor</h2>
+                <label for="sensor16">Sensor 16:</label>
+                <input type="number" id="sensor16" name="sensor16" step="0.01" required>
+                <label for="sensor17">Sensor 17:</label>
+                <input type="number" id="sensor17" name="sensor17" step="0.01" required>
+                <label for="sensor18">Sensor 18:</label>
+                <input type="number" id="sensor18" name="sensor18" step="0.01" required>
+                <label for="sensor19">Sensor 19:</label>
+                <input type="number" id="sensor19" name="sensor19" step="0.01" required>
+            </div>
+            <div class="input-container">
+                <h2>FORCE PLATES Sensor</h2>
+                <label for="sensor20">Sensor 20:</label>
+                <input type="number" id="sensor20" name="sensor20" step="0.01" required>
+                <label for="sensor21">Sensor 21:</label>
+                <input type="number" id="sensor21" name="sensor21" step="0.01" required>
+            </div>
+            <div class="button-row">
+                <button type="submit">Get Recommendation</button>
+            </div>
+        </div>
+    </form>
+</body>
+</html>
